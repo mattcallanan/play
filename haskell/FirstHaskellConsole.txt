@@ -1,0 +1,1337 @@
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+C:\Users\Matt>ghc
+ghc: no input files
+Usage: For basic information, try the `--help' option.
+
+C:\Users\Matt>ghc --help
+Usage:
+
+    ghc [command-line-options-and-input-files]
+
+To compile and link a complete Haskell program, run the compiler like
+so:
+
+    ghc --make Main
+
+where the module Main is in a file named Main.hs (or Main.lhs) in the
+current directory.  The other modules in the program will be located
+and compiled automatically, and the linked program will be placed in
+the file `a.out' (or `Main.exe' on Windows).
+
+Alternatively, ghc can be used to compile files individually.  Each
+input file is guided through (some of the) possible phases of a
+compilation:
+
+    - unlit:    extract code from a "literate program"
+    - hscpp:    run code through the C pre-processor (if -cpp flag given)
+    - hsc:      run the Haskell compiler proper
+    - gcc:      run the C compiler (if compiling via C)
+    - as:       run the assembler
+    - ld:       run the linker
+
+For each input file, the phase to START with is determined by the
+file's suffix:
+
+    - .lhs      literate Haskell                 unlit
+    - .hs       plain Haskell                    ghc
+    - .hc       C from the Haskell compiler      gcc
+    - .c        C not from the Haskell compiler  gcc
+    - .s        assembly language                as
+    - other     passed directly to the linker    ld
+
+The phase at which to STOP processing is determined by a command-line
+option:
+
+    -E          stop after generating preprocessed, de-litted Haskell
+                     (used in conjunction with -cpp)
+    -C          stop after generating C (.hc output)
+    -S          stop after generating assembler (.s output)
+    -c          stop after generating object files (.o output)
+
+Other commonly-used options are:
+
+    -v[n]           Control verbosity (n is 0--5, normal verbosity level is 1,
+                      -v alone is equivalent to -v3)
+
+    -fglasgow-exts  Allow Glasgow extensions (unboxed types, etc.)
+
+    -O              An `optimising' package of compiler flags, for faster code
+
+    -prof           Compile for cost-centre profiling
+                     (add -auto-all for automagic cost-centres on all
+                      top-level functions)
+
+    -H14m           Increase compiler's heap size (might make compilation
+                    faster, especially on large source files).
+
+    -M              Output Makefile rules recording the
+                    dependencies of a list of Haskell files.
+
+Given the above, here are some TYPICAL invocations of ghc:
+
+    # compile a Haskell module to a .o file, optimising:
+    % ghc -c -O Foo.hs
+    # link three .o files into an executable called "test":
+    % ghc -o test Foo.o Bar.o Baz.o
+    # compile a Haskell module to C (a .hc file), using a bigger heap:
+    % ghc -C -H16m Foo.hs
+    # compile Haskell-produced C (.hc) to assembly language:
+    % ghc -S Foo.hc
+
+The User's Guide has more information about GHC's *many* options.  An
+online copy can be found here:
+
+   http://haskell.org/haskellwiki/GHC
+
+------------------------------------------------------------------------
+
+C:\Users\Matt>cd \opt\ghc-7.0.3
+
+C:\opt\ghc-7.0.3>dir
+ Volume in drive C is OS
+ Volume Serial Number is 7C4E-86D4
+
+ Directory of C:\opt\ghc-7.0.3
+
+16/05/2011  06:15 PM    <DIR>          .
+16/05/2011  06:15 PM    <DIR>          ..
+16/05/2011  06:09 PM    <DIR>          bin
+16/05/2011  06:15 PM    <DIR>          doc
+16/05/2011  06:15 PM    <DIR>          icons
+16/05/2011  06:14 PM    <DIR>          lib
+16/05/2011  06:14 PM    <DIR>          man
+16/05/2011  06:15 PM    <DIR>          mingw
+16/05/2011  06:15 PM    <DIR>          perl
+16/05/2011  06:15 PM           588,967 unins000.dat
+16/05/2011  06:08 PM           695,578 unins000.exe
+               2 File(s)      1,284,545 bytes
+               9 Dir(s)  88,179,154,944 bytes free
+
+C:\opt\ghc-7.0.3>cd bin
+
+C:\opt\ghc-7.0.3\bin>dir
+ Volume in drive C is OS
+ Volume Serial Number is 7C4E-86D4
+
+ Directory of C:\opt\ghc-7.0.3\bin
+
+16/05/2011  06:09 PM    <DIR>          .
+16/05/2011  06:09 PM    <DIR>          ..
+27/03/2011  12:11 AM            42,686 ghc-7.0.3
+27/03/2011  12:11 AM         2,860,856 ghc-pkg.exe
+27/03/2011  12:11 AM        33,253,682 ghc.exe
+27/03/2011  12:11 AM            46,814 ghci-7.0.3.exe
+27/03/2011  12:11 AM            46,814 ghci.exe
+27/03/2011  12:10 AM                51 ghcii-7.0.3.sh
+27/03/2011  12:10 AM                51 ghcii.sh
+27/03/2011  12:11 AM            42,686 haddock-7.0.3
+27/03/2011  12:11 AM        32,824,271 haddock.exe
+27/03/2011  12:11 AM            57,140 hp2ps.exe
+27/03/2011  12:11 AM         2,253,150 hpc.exe
+27/03/2011  12:11 AM         1,832,850 hsc2hs.exe
+27/03/2011  12:11 AM         1,390,746 runghc.exe
+27/03/2011  12:11 AM         1,390,746 runhaskell.exe
+              14 File(s)     76,042,543 bytes
+               2 Dir(s)  88,179,154,944 bytes free
+
+C:\opt\ghc-7.0.3\bin>ghci
+GHCi, version 7.0.3: http://www.haskell.org/ghc/  :? for help
+Loading package ghc-prim ... linking ... done.
+Loading package integer-gmp ... linking ... done.
+Loading package base ... linking ... done.
+Loading package ffi-1.0 ... linking ... done.
+Prelude> help
+
+<interactive>:1:1: Not in scope: `help'
+Prelude> ?
+
+<interactive>:1:1: parse error on input `?'
+Prelude> 1+1
+2
+Prelude> list
+
+<interactive>:1:1: Not in scope: `list'
+Prelude> true && false
+
+<interactive>:1:1: Not in scope: `true'
+
+<interactive>:1:9: Not in scope: `false'
+Prelude> True && False
+False
+Prelude> not (True && False)
+True
+Prelude> 5 == 4
+False
+Prelude> 5 /= 4
+True
+Prelude> 5/=4
+True
+Prelude> 5/=0
+True
+Prelude> 5/=5
+False
+Prelude> 5==True
+
+<interactive>:1:1:
+    No instance for (Num Bool)
+      arising from the literal `5'
+    Possible fix: add an instance declaration for (Num Bool)
+    In the first argument of `(==)', namely `5'
+    In the expression: 5 == True
+    In an equation for `it': it = 5 == True
+Prelude>
+Prelude>
+Prelude>
+Prelude> eit
+
+<interactive>:1:1: Not in scope: `eit'
+Prelude> exit
+
+<interactive>:1:1: Not in scope: `exit'
+Prelude>
+ghc.exe: panic! (the 'impossible' happened)
+  (GHC version 7.0.3 for i386-unknown-mingw32):
+        thread blocked indefinitely in an MVar operation
+
+Please report this as a GHC bug:  http://www.haskell.org/ghc/reportabug
+
+
+C:\opt\ghc-7.0.3\bin>
+C:\opt\ghc-7.0.3\bin>
+C:\opt\ghc-7.0.3\bin>
+C:\opt\ghc-7.0.3\bin>ghci --color
+GHCi, version 7.0.3: http://www.haskell.org/ghc/  :? for help
+ghc.exe: unrecognised flags: --color
+Usage: For basic information, try the `--help' option.
+
+C:\opt\ghc-7.0.3\bin>ghci --colour
+GHCi, version 7.0.3: http://www.haskell.org/ghc/  :? for help
+ghc.exe: unrecognised flags: --colour
+Usage: For basic information, try the `--help' option.
+
+C:\opt\ghc-7.0.3\bin>ghci
+GHCi, version 7.0.3: http://www.haskell.org/ghc/  :? for help
+Loading package ghc-prim ... linking ... done.
+Loading package integer-gmp ... linking ... done.
+Loading package base ... linking ... done.
+Loading package ffi-1.0 ... linking ... done.
+Prelude> "Hello" + " " + "World"
+
+<interactive>:1:9:
+    No instance for (Num [Char])
+      arising from a use of `+'
+    Possible fix: add an instance declaration for (Num [Char])
+    In the first argument of `(+)', namely `"Hello" + " "'
+    In the expression: "Hello" + " " + "World"
+    In an equation for `it': it = "Hello" + " " + "World"
+Prelude> "Hello" ++ " " ++ "World"
+"Hello World"
+Prelude> "Hello" -- "o"
+"Hello"
+Prelude> succ 5
+6
+Prelude> succ "1"
+
+<interactive>:1:1:
+    No instance for (Enum [Char])
+      arising from a use of `succ'
+    Possible fix: add an instance declaration for (Enum [Char])
+    In the expression: succ "1"
+    In an equation for `it': it = succ "1"
+Prelude> truncate 1.1
+1
+Prelude> round 4.5
+4
+Prelude> round 4.6
+5
+Prelude> sqrt 26
+5.0990195135927845
+Prelude> gcd 1 3
+1
+Prelude> gcd 20 25
+5
+Prelude>
+Prelude>
+Prelude>
+Prelude> putStrLn "how"
+how
+Prelude> putStr "asdf"
+asdfPrelude> print 5+4
+
+<interactive>:1:9:
+    No instance for (Num (IO ()))
+      arising from the literal `4'
+    Possible fix: add an instance declaration for (Num (IO ()))
+    In the second argument of `(+)', namely `4'
+    In the expression: print 5 + 4
+    In an equation for `it': it = print 5 + 4
+Prelude> print (5+4)
+9
+Prelude> do { putStr "12"; print "3" }
+12"3"
+Prelude> getLine
+abc
+"abc"
+Prelude> n <- readLn
+
+<interactive>:1:6:
+    Ambiguous type variable `t0' in the constraint:
+      (Read t0) arising from a use of `readLn'
+    Probable fix: add a type signature that fixes these type variable(s)
+    In a stmt of an interactive GHCi command: n <- readLn
+Prelude> Num a <- readLn
+
+<interactive>:1:1: Not in scope: data constructor `Num'
+Prelude> do { n <- readLn ; print n }
+abc
+*** Exception: user error (Prelude.readIO: no parse)
+Prelude>
+Prelude> ext
+
+<interactive>:1:1: Not in scope: `ext'
+Prelude> exit
+
+<interactive>:1:1: Not in scope: `exit'
+Prelude>
+ghc.exe: panic! (the 'impossible' happened)
+  (GHC version 7.0.3 for i386-unknown-mingw32):
+        thread blocked indefinitely in an MVar operation
+
+Please report this as a GHC bug:  http://www.haskell.org/ghc/reportabug
+
+
+C:\opt\ghc-7.0.3\bin>cd \dev\mcallana\play\haskell
+
+C:\dev\mcallana\play\haskell>dir
+ Volume in drive C is OS
+ Volume Serial Number is 7C4E-86D4
+
+ Directory of C:\dev\mcallana\play\haskell
+
+16/05/2011  06:49 PM    <DIR>          .
+16/05/2011  06:49 PM    <DIR>          ..
+               0 File(s)              0 bytes
+               2 Dir(s)  88,173,129,728 bytes free
+
+C:\dev\mcallana\play\haskell>
+C:\dev\mcallana\play\haskell>
+C:\dev\mcallana\play\haskell>
+C:\dev\mcallana\play\haskell>
+C:\dev\mcallana\play\haskell>textpad readLn.hs
+
+C:\dev\mcallana\play\haskell>ghci readLn.hs
+GHCi, version 7.0.3: http://www.haskell.org/ghc/  :? for help
+Loading package ghc-prim ... linking ... done.
+Loading package integer-gmp ... linking ... done.
+Loading package base ... linking ... done.
+Loading package ffi-1.0 ... linking ... done.
+[1 of 1] Compiling Main             ( readLn.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> main
+What is 2 + 2?
+5
+You're wrong!
+*Main> main
+What is 2 + 2?
+4
+You're right!
+*Main> min 1 2
+1
+*Main> min 123098 239487234
+123098
+*Main> min 2234.2 23423.2
+2234.2
+*Main> 123`+`456
+
+<interactive>:1:5: parse error on input `+'
+*Main> 123`dif`456
+
+<interactive>:1:4: Not in scope: `dif'
+*Main> 123`div`456
+0
+*Main> 123 `max` 234
+234
+*Main> doubleme x = x + x
+
+<interactive>:1:12: parse error on input `='
+*Main> :r
+[1 of 1] Compiling Main             ( readLn.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> doublme 1
+
+<interactive>:1:1: Not in scope: `doublme'
+*Main> :l readLn.hs
+[1 of 1] Compiling Main             ( readLn.hs, interpreted )
+Ok, modules loaded: Main.
+*Main>
+*Main>
+*Main>
+*Main> doubleme
+
+<interactive>:1:1:
+    No instance for (Show (a0 -> a0))
+      arising from a use of `print'
+    Possible fix: add an instance declaration for (Show (a0 -> a0))
+    In a stmt of an interactive GHCi command: print it
+*Main>
+*Main>
+*Main>
+*Main>
+*Main> :r
+[1 of 1] Compiling Main             ( readLn.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> doubleme
+
+<interactive>:1:1:
+    No instance for (Show (a0 -> a0))
+      arising from a use of `print'
+    Possible fix: add an instance declaration for (Show (a0 -> a0))
+    In a stmt of an interactive GHCi command: print it
+*Main> :l baby
+[1 of 1] Compiling Main             ( baby.hs, interpreted )
+Ok, modules loaded: Main.
+*Main>
+*Main>
+*Main> doubleme
+
+<interactive>:1:1:
+    No instance for (Show (a0 -> a0))
+      arising from a use of `print'
+    Possible fix: add an instance declaration for (Show (a0 -> a0))
+    In a stmt of an interactive GHCi command: print it
+*Main> doubleme 12
+24
+*Main> :l readLn
+[1 of 1] Compiling Main             ( readLn.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> doublme 13
+
+<interactive>:1:1: Not in scope: `doublme'
+*Main> doubleme 13
+26
+*Main> :r
+[1 of 1] Compiling Main             ( readLn.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> doubleus 12
+
+<interactive>:1:1: Not in scope: `doubleus'
+*Main> doubleus 1 2
+
+<interactive>:1:1: Not in scope: `doubleus'
+*Main> :l baby
+[1 of 1] Compiling Main             ( baby.hs, interpreted )
+Ok, modules loaded: Main.
+*Main>
+*Main>
+*Main> doubleus 1 2
+6
+*Main> doubleus 1 2 + doubleme 123
+252
+*Main> :r
+[1 of 1] Compiling Main             ( baby.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> doubleus 1 2
+6
+*Main>
+*Main>
+Leaving GHCi.
+
+C:\dev\mcallana\play\haskell>
+C:\dev\mcallana\play\haskell>
+C:\dev\mcallana\play\haskell>
+C:\dev\mcallana\play\haskell>ghc --make readLn.hs
+[1 of 1] Compiling Main             ( readLn.hs, readLn.o )
+Linking readLn.exe ...
+
+C:\dev\mcallana\play\haskell>readLn.exe
+What is 2 + 2?
+1342
+You're wrong!
+
+C:\dev\mcallana\play\haskell>ghci
+GHCi, version 7.0.3: http://www.haskell.org/ghc/  :? for help
+Loading package ghc-prim ... linking ... done.
+Loading package integer-gmp ... linking ... done.
+Loading package base ... linking ... done.
+Loading package ffi-1.0 ... linking ... done.
+Prelude> 5::Double
+5.0
+Prelude> 5.12 :: Int
+
+<interactive>:1:1:
+    No instance for (Fractional Int)
+      arising from the literal `5.12'
+    Possible fix: add an instance declaration for (Fractional Int)
+    In the expression: 5.12 :: Int
+    In an equation for `it': it = 5.12 :: Int
+Prelude> :t True True :: Bool
+
+<interactive>:1:1:
+    The function `True' is applied to one argument,
+    but its type `Bool' has none
+    In the expression: True True :: Bool
+Prelude> True True :: Bool
+
+<interactive>:1:1:
+    The function `True' is applied to one argument,
+    but its type `Bool' has none
+    In the expression: True True :: Bool
+    In an equation for `it': it = True True :: Bool
+Prelude> :t True
+True :: Bool
+Prelude> :t False
+False :: Bool
+Prelude> :t "Hi"
+"Hi" :: [Char]
+Prelude> [1,2,3]
+[1,2,3]
+Prelude> :t [1,2,3]
+[1,2,3] :: Num t => [t]
+Prelude> :t [1.1,2,3]
+[1.1,2,3] :: Fractional t => [t]
+Prelude> :t ["1",2,3]
+
+<interactive>:1:8:
+    No instance for (Num [Char])
+      arising from the literal `3'
+    Possible fix: add an instance declaration for (Num [Char])
+    In the expression: 3
+    In the expression: ["1", 2, 3]
+Prelude> :t ["1","2",3]
+
+<interactive>:1:10:
+    No instance for (Num [Char])
+      arising from the literal `3'
+    Possible fix: add an instance declaration for (Num [Char])
+    In the expression: 3
+    In the expression: ["1", "2", 3]
+Prelude> :t ["1","2","3"]
+["1","2","3"] :: [[Char]]
+Prelude> (1,2,3)
+(1,2,3)
+Prelude> :t (1,2,3)
+(1,2,3) :: (Num t1, Num t2, Num t) => (t, t1, t2)
+Prelude> :t (1.1,2,3)
+(1.1,2,3) :: (Num t2, Num t1, Fractional t) => (t, t1, t2)
+Prelude> :t 42
+42 :: Num a => a
+Prelude> gcd 1 2 :: Int
+1
+Prelude> gcd 1 2 :: Integer
+1
+Prelude> gcd 1 2 :: Integral
+
+<interactive>:1:12:
+    Class `Integral' used as a type
+    In an expression type signature: Integral
+    In the expression: gcd 1 2 :: Integral
+    In an equation for `it': it = gcd 1 2 :: Integral
+Prelude> :t gcd 1 2
+gcd 1 2 :: Integral a => a
+Prelude> ()
+()
+Prelude> :t ()
+() :: ()
+Prelude> :t Int
+
+<interactive>:1:1: Not in scope: data constructor `Int'
+Prelude> :t Integral
+
+<interactive>:1:1: Not in scope: data constructor `Integral'
+Prelude> [1..5]
+[1,2,3,4,5]
+Prelude> :t 1..5
+
+<interactive>:1:2: parse error on input `..'
+Prelude> :t [1..5]
+[1..5] :: (Num t, Enum t) => [t]
+Prelude> 1 : [1,2]
+[1,1,2]
+Prelude> (1,"abc")
+(1,"abc")
+Prelude> (1,"abc", 2.3)
+(1,"abc",2.3)
+Prelude> zip [1..5] [1..e]
+
+<interactive>:1:16: Not in scope: `e'
+Prelude> zip [1..5] ['a'..'e']
+[(1,'a'),(2,'b'),(3,'c'),(4,'d'),(5,'e')]
+Prelude>
+Prelude>
+Prelude> zip [1..5] ["a".."e"]
+
+<interactive>:1:12:
+    No instance for (Enum [Char])
+      arising from the arithmetic sequence `"a" .. "e"'
+    Possible fix: add an instance declaration for (Enum [Char])
+    In the second argument of `zip', namely `["a" .. "e"]'
+    In the expression: zip [1 .. 5] ["a" .. "e"]
+    In an equation for `it': it = zip [1 .. 5] ["a" .. "e"]
+Prelude> ["1".."e"]
+
+<interactive>:1:1:
+    No instance for (Enum [Char])
+      arising from the arithmetic sequence `"1" .. "e"'
+    Possible fix: add an instance declaration for (Enum [Char])
+    In the expression: ["1" .. "e"]
+    In an equation for `it': it = ["1" .. "e"]
+Prelude> zip [1] [1,2,3]
+[(1,1)]
+Prelude> zip [1..4] ['a','b']
+[(1,'a'),(2,'b')]
+Prelude> :t zip [1..4] ['a','b']
+zip [1..4] ['a','b'] :: (Num a, Enum a) => [(a, Char)]
+Prelude> :t
+
+<no location info>: not an expression: `'
+Prelude> [('x', True), ('y', False)]
+[('x',True),('y',False)]
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude> :t
+
+<no location info>: not an expression: `'
+Prelude> [('x', True), ('y', False)]:
+
+<interactive>:1:29: parse error (possibly incorrect indentation)
+Prelude>
+Prelude>
+Prelude>
+Prelude> :t [('x', True), ('y', False)]
+[('x', True), ('y', False)] :: [(Char, Bool)]
+Prelude> :t [('x', True), ('y', 1)]
+
+<interactive>:1:21:
+    No instance for (Num Bool)
+      arising from the literal `1'
+    Possible fix: add an instance declaration for (Num Bool)
+    In the expression: 1
+    In the expression: ('y', 1)
+    In the expression: [('x', True), ('y', 1)]
+Prelude> [1..5]
+[1,2,3,4,5]
+Prelude> map (+ 2) [1..5]
+[3,4,5,6,7]
+Prelude> map (max) [(1,2),(3,4)]
+
+<interactive>:1:1:
+    No instance for (Show ((t0, t1) -> (t0, t1)))
+      arising from a use of `print'
+    Possible fix:
+      add an instance declaration for (Show ((t0, t1) -> (t0, t1)))
+    In a stmt of an interactive GHCi command: print it
+Prelude> filter (> 2) [1,2,3,4,5]
+[3,4,5]
+Prelude> :l factorial
+[1 of 1] Compiling Main             ( factorial.hs, interpreted )
+Ok, modules loaded: Main.
+*Main>
+*Main>
+*Main> main
+What is 5! ?
+25
+You're wrong!
+*Main>
+*Main>
+*Main>
+*Main> :r
+[1 of 1] Compiling Main             ( factorial.hs, interpreted )
+
+factorial.hs:9:20:
+    Couldn't match expected type `IO ()' with actual type `[a0]'
+    In the expression:
+        putStrLn "You're wrong! answer is " ++ factorial 5
+    In the expression:
+      if x == factorial 5 then
+          putStrLn "You're right!"
+      else  putStrLn "You're wrong! answer is " ++ factorial 5
+    In the expression:
+      do { putStrLn "What is 5! ?";
+           x <- readLn;
+           if x == factorial 5 then
+               putStrLn "You're right!"
+           else  putStrLn "You're wrong! answer is " ++ factorial 5 }
+Failed, modules loaded: none.
+Prelude> ;r
+
+<interactive>:1:1: parse error on input `;'
+Prelude> :r
+[1 of 1] Compiling Main             ( factorial.hs, interpreted )
+
+factorial.hs:9:58:
+    The function `print' is applied to two arguments,
+    but its type `a0 -> IO ()' has only one
+    In the expression: print factorial 5
+    In the expression:
+      do { putStrLn "What is 5! ?";
+           x <- readLn;
+           if x == factorial 5 then
+               putStrLn "You're right!"
+           else
+               putStrLn "You're wrong! answer is ";
+           print factorial 5 }
+    In an equation for `main':
+        main
+          = do { putStrLn "What is 5! ?";
+                 x <- readLn;
+                 if x == factorial 5 then
+                     putStrLn "You're right!"
+                 else
+                     putStrLn "You're wrong! answer is ";
+                 .... }
+Failed, modules loaded: none.
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude> :r
+[1 of 1] Compiling Main             ( factorial.hs, interpreted )
+
+factorial.hs:9:58:
+    The function `print' is applied to two arguments,
+    but its type `a0 -> IO ()' has only one
+    In the expression: print factorial 5
+    In the expression:
+      do { putStrLn "What is 5! ?";
+           x <- readLn;
+           if x == factorial 5 then
+               putStrLn "You're right!"
+           else
+               putStrLn "You're wrong! answer is ";
+           print factorial 5 }
+    In an equation for `main':
+        main
+          = do { putStrLn "What is 5! ?";
+                 x <- readLn;
+                 if x == factorial 5 then
+                     putStrLn "You're right!"
+                 else
+                     putStrLn "You're wrong! answer is ";
+                 .... }
+Failed, modules loaded: none.
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude> :r
+[1 of 1] Compiling Main             ( factorial.hs, interpreted )
+Ok, modules loaded: Main.
+*Main>
+*Main>
+*Main>
+*Main>
+*Main> main
+What is 5! ?
+125
+You're wrong! answer is
+120
+*Main> :r
+[1 of 1] Compiling Main             ( factorial.hs, interpreted )
+Ok, modules loaded: Main.
+*Main>
+*Main>
+*Main>
+*Main> main
+What is 5! ?
+123
+You're wrong! answer is 120
+*Main> :t factorial
+factorial :: Num a => a -> a
+*Main> factorial 0
+1
+*Main> factorial 1
+1
+*Main> factorial 2
+2
+*Main> factorial 3
+6
+*Main> ;r
+
+<interactive>:1:1: parse error on input `;'
+*Main> factorial 3
+6
+*Main> factorial 2
+2
+*Main> factorial 0
+1
+*Main> factorial 1
+1
+*Main> :l let
+[1 of 1] Compiling Main             ( let.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> secsToWeek 12345
+
+<interactive>:1:1: Not in scope: `secsToWeek'
+*Main> secsToWeeks 12345
+2.041170634920635e-2
+*Main> secsToWeeks 123456
+0.20412698412698413
+*Main> secsToWeeks 1234567
+2.0412814153439154
+*Main> :l case
+[1 of 1] Compiling Main             ( case.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> age 1
+
+<interactive>:1:1: Not in scope: `age'
+*Main> classify 1
+"infant"
+*Main> classify 2
+"toddler"
+*Main> classify 3
+"senior citizen"
+*Main> classify 0
+"newborn"
+*Main> :l let
+[1 of 1] Compiling Main             ( let.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> secsToWeeks 1
+1.6534391534391535e-6
+*Main>
+*Main>
+*Main>
+*Main>
+*Main>
+*Main>
+*Main>  exit
+
+<interactive>:1:1: Not in scope: `exit'
+*Main>
+ghc.exe: panic! (the 'impossible' happened)
+  (GHC version 7.0.3 for i386-unknown-mingw32):
+        thread blocked indefinitely in an MVar operation
+
+Please report this as a GHC bug:  http://www.haskell.org/ghc/reportabug
+
+
+C:\dev\mcallana\play\haskell>ghci --debug
+GHCi, version 7.0.3: http://www.haskell.org/ghc/  :? for help
+ghc.exe: unrecognised flags: --debug
+Usage: For basic information, try the `--help' option.
+
+C:\dev\mcallana\play\haskell>ghci --help
+Usage:
+
+    ghci [command-line-options-and-input-files]
+
+The kinds of input files that can be given on the command-line
+include:
+
+  - Haskell source files (.hs or .lhs suffix)
+  - Object files (.o suffix, or .obj on Windows)
+  - Dynamic libraries (.so suffix, or .dll on Windows)
+
+In addition, ghci accepts most of the command-line options that plain
+GHC does.  Some of the options that are commonly used are:
+
+    -fglasgow-exts  Allow Glasgow extensions (unboxed types, etc.)
+
+    -i<dir>         Search for imported modules in the directory <dir>.
+
+    -H32m           Increase GHC's default heap size to 32m
+
+    -cpp            Enable CPP processing of source files
+
+Full details can be found in the User's Guide, an online copy of which
+can be found here:
+
+    http://haskell.org/haskellwiki/GHC
+
+C:\dev\mcallana\play\haskell>
+C:\dev\mcallana\play\haskell>
+C:\dev\mcallana\play\haskell>
+C:\dev\mcallana\play\haskell>
+C:\dev\mcallana\play\haskell>ghci let
+GHCi, version 7.0.3: http://www.haskell.org/ghc/  :? for help
+Loading package ghc-prim ... linking ... done.
+Loading package integer-gmp ... linking ... done.
+Loading package base ... linking ... done.
+Loading package ffi-1.0 ... linking ... done.
+[1 of 1] Compiling Main             ( let.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> secsToWeeks 10
+1.6534391534391536e-5
+*Main> secsToWeeks 1000000
+1.6534391534391535
+*Main> :l uselib
+[1 of 1] Compiling Main             ( uselib.hs, interpreted )
+Ok, modules loaded: Main.
+*Main>
+*Main>
+*Main>
+*Main> main
+Loading package array-0.3.0.2 ... linking ... done.
+Loading package containers-0.4.0.0 ... linking ... done.
+Who are you?
+matt
+I don't know you
+*Main> main
+Who are you?
+don
+I don't know you
+*Main> main
+Who are you?
+Don
+Errors per line: 100
+*Main> :l uselib
+[1 of 1] Compiling Main             ( uselib.hs, interpreted )
+
+uselib.hs:5:17: Not in scope: `Data.Map.fromList'
+
+uselib.hs:10:16: Not in scope: `Data.Map.lookup'
+Failed, modules loaded: none.
+Prelude> :l uselib
+[1 of 1] Compiling Main             ( uselib.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> main
+Who are you?
+Don
+Errors per line: 100
+*Main> Simon
+
+<interactive>:1:1: Not in scope: data constructor `Simon'
+*Main> main
+Who are you?
+Simon
+Errors per line: -5
+*Main> :r
+[1 of 1] Compiling Main             ( uselib.hs, interpreted )
+
+uselib.hs:5:17: Not in scope: `Map.fromList'
+Failed, modules loaded: none.
+Prelude> main
+
+<interactive>:1:1: Not in scope: `main'
+Prelude>
+Prelude>
+Prelude> s
+
+<interactive>:1:1: Not in scope: `s'
+Prelude> main
+
+<interactive>:1:1: Not in scope: `main'
+Prelude> :r
+[1 of 1] Compiling Main             ( uselib.hs, interpreted )
+
+uselib.hs:5:17: Not in scope: `Map.fromList'
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Main             ( uselib.hs, interpreted )
+Ok, modules loaded: Main.
+*Main>
+*Main>
+*Main>
+*Main> main
+Who are you?
+
+I don't know you
+*Main> main
+Who are you?
+asdf
+I don't know you
+*Main> :r
+[1 of 1] Compiling Main             ( uselib.hs, interpreted )
+
+uselib.hs:9:11: Parse error in pattern: putStrLn
+Failed, modules loaded: none.
+Prelude> :r
+[1 of 1] Compiling Main             ( uselib.hs, interpreted )
+
+uselib.hs:9:11: Parse error in pattern: putStrLn
+Failed, modules loaded: none.
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude> :r
+[1 of 1] Compiling Main             ( uselib.hs, interpreted )
+
+uselib.hs:9:11: Parse error in pattern: putStrLn
+Failed, modules loaded: none.
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude> :r
+[1 of 1] Compiling Main             ( uselib.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> main
+Who are you?
+Chris
+Errors per line: 472
+*Main> :t main
+main :: IO ()
+*Main> :t putStr
+putStr :: String -> IO ()
+*Main> :t (putStr "abc")
+(putStr "abc") :: IO ()
+*Main> :r
+[1 of 1] Compiling Main             ( uselib.hs, interpreted )
+
+uselib.hs:19:11:
+    Ambiguous occurrence `lookup'
+    It could refer to either `Main.lookup', defined at uselib.hs:8:1
+                          or `Prelude.lookup', imported from Prelude
+Failed, modules loaded: none.
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude> :r
+[1 of 1] Compiling Main             ( uselib.hs, interpreted )
+
+uselib.hs:19:11:
+    Ambiguous occurrence `lookup'
+    It could refer to either `Main.lookup', defined at uselib.hs:8:1
+                          or `Prelude.lookup', imported from Prelude
+Failed, modules loaded: none.
+Prelude>
+Prelude>
+Prelude>
+Prelude> :r
+[1 of 1] Compiling Main             ( uselib.hs, interpreted )
+Ok, modules loaded: Main.
+*Main>
+*Main>
+*Main>
+*Main>
+*Main>
+*Main> :t myLookup
+myLookup :: [Char] -> IO ()
+*Main> main
+Who are you?
+Don
+Errors per line: 100
+*Main>
+*Main>
+*Main>
+*Main> :r
+[1 of 1] Compiling Main             ( uselib.hs, interpreted )
+Ok, modules loaded: Main.
+*Main>
+*Main>
+*Main>
+*Main>
+*Main> :r
+Ok, modules loaded: Main.
+*Main>
+*Main>
+*Main>
+*Main> :t printErrors
+printErrors :: Show a => a -> IO ()
+*Main>
+*Main> :t myLookup
+myLookup :: [Char] -> IO ()
+*Main>
+*Main>
+*Main>
+*Main>
+*Main> :t getLine
+getLine :: IO String
+*Main>
+*Main>
+*Main> :t printErrors
+printErrors :: Show a => a -> IO ()
+*Main> :t print
+print :: Show a => a -> IO ()
+*Main> :t putStr
+putStr :: String -> IO ()
+*Main> :t show
+show :: Show a => a -> String
+*Main> :r
+[1 of 1] Compiling Main             ( uselib.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> main
+Who are you?
+DOn
+I don't know you
+*Main> DOn
+
+<interactive>:1:1: Not in scope: data constructor `DOn'
+*Main> main
+Who are you?
+Don
+Errors per line: 100
+*Main> pi
+3.141592653589793
+*Main> :t pi
+pi :: Floating a => a
+*Main> let area = pi * 5
+*Main> area
+15.707963267948966
+*Main> :t area
+area :: Double
+*Main> :t pi
+pi :: Floating a => a
+*Main> pi 3
+
+<interactive>:1:1:
+    No instance for (Floating (a0 -> t0))
+      arising from a use of `pi'
+    Possible fix: add an instance declaration for (Floating (a0 -> t0))
+    In the expression: pi 3
+    In an equation for `it': it = pi 3
+*Main> y = x + 2
+
+<interactive>:1:3: parse error on input `='
+*Main> let y = x + 2
+
+<interactive>:1:9: Not in scope: `x'
+*Main> r
+
+<interactive>:1:1: Not in scope: `r'
+*Main> r = 5
+
+<interactive>:1:3: parse error on input `='
+*Main> do
+
+<interactive>:1:1: Empty 'do' construct
+*Main> do {
+
+<interactive>:1:1: Empty 'do' construct
+*Main> do { r = 5; y = r *2 }
+
+<interactive>:1:8: parse error on input `='
+*Main> :l play
+[1 of 1] Compiling Main             ( play.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> r
+5
+*Main> y
+8
+*Main> :r
+[1 of 1] Compiling Main             ( play.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> y
+10
+*Main> :r
+[1 of 1] Compiling Main             ( play.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> y
+10
+*Main> r
+5
+*Main> :r
+[1 of 1] Compiling Main             ( play.hs, interpreted )
+Ok, modules loaded: Main.
+*Main> area
+49.34802200544679
+*Main> :r
+[1 of 1] Compiling Main             ( play.hs, interpreted )
+
+play.hs:1:5: Not in scope: `r'
+Failed, modules loaded: none.
+Prelude> area
+
+<interactive>:1:1: Not in scope: `area'
+Prelude> area 5
+
+<interactive>:1:1: Not in scope: `area'
+Prelude> :r
+[1 of 1] Compiling Main             ( play.hs, interpreted )
+Ok, modules loaded: Main.
+*Main>
+*Main>
+*Main> area 1
+3.141592653589793
+*Main> area 5
+78.53981633974483
+*Main> :l heron
+[1 of 1] Compiling Main             ( heron.hs, interpreted )
+Ok, modules loaded: Main.
+*Main>
+*Main>
+*Main>
+*Main> heron 1 2 3
+0.0
+*Main> heron 2 3 4
+2.9047375096555625
+*Main> heron 50 100 150
+0.0
+*Main> heron 50 100 100
+2420.6145913796354
+*Main> :r
+[1 of 1] Compiling Main             ( heron.hs, interpreted )
+Ok, modules loaded: Main.
+*Main>
+*Main>
+*Main> areaTriangleTrig 10 15 15
+70.71067811865474
+*Main> areaTriangleHeron
+
+<interactive>:1:1:
+    No instance for (Show (a0 -> a0 -> a0 -> a0))
+      arising from a use of `print'
+    Possible fix:
+      add an instance declaration for (Show (a0 -> a0 -> a0 -> a0))
+    In a stmt of an interactive GHCi command: print it
+*Main> areaTriangleHeron 10 15 15
+70.71067811865476
+*Main> (==) 1 1
+True
+*Main> (==) 1 2
+False
+*Main> 1 max 2
+
+<interactive>:1:1:
+    No instance for (Num ((a0 -> a0 -> a0) -> a1 -> t0))
+      arising from the literal `1'
+    Possible fix:
+      add an instance declaration for
+      (Num ((a0 -> a0 -> a0) -> a1 -> t0))
+    In the expression: 1
+    In the expression: 1 max 2
+    In an equation for `it': it = 1 max 2
+*Main> 1 (max) 2
+
+<interactive>:1:1:
+    No instance for (Num ((a0 -> a0 -> a0) -> a1 -> t0))
+      arising from the literal `1'
+    Possible fix:
+      add an instance declaration for
+      (Num ((a0 -> a0 -> a0) -> a1 -> t0))
+    In the expression: 1
+    In the expression: 1 (max) 2
+    In an equation for `it': it = 1 (max) 2
+*Main> 1 `max` 2
+2
+*Main> abs 2
+2
+*Main> abs -2
+
+<interactive>:1:6:
+    No instance for (Num (a0 -> a0))
+      arising from the literal `2'
+    Possible fix: add an instance declaration for (Num (a0 -> a0))
+    In the second argument of `(-)', namely `2'
+    In the expression: abs - 2
+    In an equation for `it': it = abs - 2
+*Main> abs (-2)
+2
+*Main> :l guard
+[1 of 1] Compiling Main             ( guard.hs, interpreted )
+
+guard.hs:2:15:
+    Precedence parsing error
+        cannot mix `*' [infixl 7] and prefix `-' [infixl 6] in the same infix expression
+
+guard.hs:3:7: Pattern syntax in expression context: _
+Failed, modules loaded: none.
+Prelude> :l guard
+[1 of 1] Compiling Main             ( guard.hs, interpreted )
+
+guard.hs:3:7: Pattern syntax in expression context: _
+Failed, modules loaded: none.
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude> :r
+[1 of 1] Compiling Main             ( guard.hs, interpreted )
+
+guard.hs:3:7: Pattern syntax in expression context: _
+Failed, modules loaded: none.
+Prelude>
+Prelude>
+Prelude>
+Prelude> :r
+[1 of 1] Compiling Main             ( guard.hs, interpreted )
+Ok, modules loaded: Main.
+*Main>
+*Main>
+*Main>
+*Main> abs -100
+
+<interactive>:1:1:
+    Ambiguous occurrence `abs'
+    It could refer to either `Main.abs', defined at guard.hs:1:1
+                          or `Prelude.abs', imported from Prelude
+*Main> abs (-100)
+
+<interactive>:1:1:
+    Ambiguous occurrence `abs'
+    It could refer to either `Main.abs', defined at guard.hs:1:1
+                          or `Prelude.abs', imported from Prelude
+*Main> :r
+[1 of 1] Compiling Main             ( guard.hs, interpreted )
+Ok, modules loaded: Main.
+*Main>
+*Main>
+*Main> Main.abs
+
+<interactive>:1:1:
+    No instance for (Show (a0 -> a0))
+      arising from a use of `print'
+    Possible fix: add an instance declaration for (Show (a0 -> a0))
+    In a stmt of an interactive GHCi command: print it
+*Main> Main.abs -100
+
+<interactive>:1:11:
+    No instance for (Num (a0 -> a0))
+      arising from the literal `100'
+    Possible fix: add an instance declaration for (Num (a0 -> a0))
+    In the second argument of `(-)', namely `100'
+    In the expression: Main.abs - 100
+    In an equation for `it': it = Main.abs - 100
+*Main> Main.abs (-100)
+100
+*Main> :r
+[1 of 1] Compiling Main             ( guard.hs, interpreted )
+Ok, modules loaded: Main.
+*Main>
+*Main>
+*Main>
+*Main> numOfSolutions   2 3 4
+0
+*Main> let minima k xs = take k (sort xs)
+
+<interactive>:1:27: Not in scope: `sort'
+*Main> :l minima
+[1 of 1] Compiling Main             ( minima.hs, interpreted )
+
+minima.hs:1:23: Not in scope: `sort'
+Failed, modules loaded: none.
+Prelude>
+Prelude>
+Prelude>
+Prelude>
+Prelude>
