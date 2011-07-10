@@ -1,12 +1,11 @@
 import scala.io.Source._
 import java.io._
 
-object Blacklist3 {
+object Blacklist4 {
     def printToFile(f: java.io.File)(op: java.io.PrintWriter => Unit) {
         val p = new java.io.PrintWriter(f)
         try { op(p) } finally { p.close() }
     }
-
     case class Customer(line: String) {
         val data = line.split(",")
         val GivenName = data(0)
@@ -28,20 +27,21 @@ object Blacklist3 {
         val custs: Iterator[Customer] = fromFile(args(0)).getLines.drop(1).map (l => Customer(l))
         val blacklist: List[String] = fromFile(args(1)).getLines.drop(1).toList
 
-        var output: List[String] = List()
-        for (c <- custs) {
-            val p: String = c.PostCode
-            var blacklisted = false
-            for (b <- blacklist) {
-                if (b == p) blacklisted = true
-            }
-            if (!blacklisted) output = c.toString :: output
-        }
-
+        val output: Iterator[String] = process(custs, blacklist)
         printToFile(new File(args(2)))(p => {
             p.println(header)
             output.foreach(p.println)
         })
         println("Done.")
+    }
+
+    def process(custs: Iterator[Customer], blacklist: List[String]): Iterator[String] = {
+        for (c <- custs if !blacklisted(c, blacklist)) yield 
+            c.toString;
+    }
+    
+    def blacklisted(cust: Customer, blacklist: List[String]): Boolean = {
+        for (b <- blacklist if b.equals(cust.PostCode)) yield false;
+        true;
     }
 }
