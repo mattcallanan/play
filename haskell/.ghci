@@ -1,0 +1,17 @@
+:m + Control.Applicative
+:m + Control.Monad
+:m + Control.Monad.Instances
+:m + Data.Char
+:m + Data.Function
+:m + Data.List
+:m + Data.Maybe
+:m + Data.Monoid
+:m + Data.Ord
+:m + Data.Time
+:m + System.Cmd
+:m + System.Directory
+:m + System.Environment
+:m + System.Exit
+:m + System.FilePath
+:m + Test.QuickCheck
+:set prompt ">> "
