@@ -27,7 +27,7 @@ propMakeList.check
 // What Is Functional Programming?
 // Craig Aspinall, 6-Jun-2011
 
-object FizzBuzz {
+obj FizzBuzz {
 
 def multipleOf3(num: Int): Boolean = num % 3 == 0
 def multipleOf5(num: Int): Boolean = num % 5 == 0
