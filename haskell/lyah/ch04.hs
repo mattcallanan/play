@@ -16,9 +16,19 @@ roots a b c = ((-b + sqrt(b*b - 4*a*c)) / (2*a), (-b - sqrt(b*b - 4*a*c)) / (2*a
 
 --roots a b c = ((-b + sqrt(b*b - 4*a*c)) / (2*a), (-b - sqrt(b*b - 4*a*c)) / (2*a))
 roots a b c = let negB = (-b); s = sqrt(b*b - 4*a*c); den = (2*a) in ((negB + s) / den, (negB - s) / den)
+rootz a b c = let negB = (-b); s = sqrt(b*b - 4*a*c); den = (2*a); q f = (negB `f` s) / den  in (q (+), q (-))
+rooty a b c = let q f = ((-b) `f` sqrt(b*b - 4*a*c)) / (2*a)  in (q (+), q (-))
 
 testRoots 
     | roots 1 3 (-4) == (1.0,-4.0) = putStrLn "Passed"
+    | otherwise = error "Failed"
+
+testRootz
+    | rootz 1 3 (-4) == (1.0,-4.0) = putStrLn "Passed"
+    | otherwise = error "Failed"
+
+testRooty
+    | rooty 1 3 (-4) == (1.0,-4.0) = putStrLn "Passed"
     | otherwise = error "Failed"
 
 {-
@@ -83,22 +93,32 @@ eulerCase = sum [x | x <- [1..999], case [x | x <- [x], multiple3or5Guard x] of 
 -- TESTS
 
 testEulerPattern
-    | eulerPattern == 233168 = putStrLn "Passed"
-    | otherwise = error ("Failed: expected 233168 but was: " ++ show eulerPattern)
+    | actual == expected = putStrLn "Passed"
+    | otherwise = error ("Failed: expected " ++ show expected ++ " but was: " ++ show actual)
+    where expected = 233168
+          actual = eulerPattern
 
 testEulerGuard
-    | eulerGuard == 233168 = putStrLn "Passed"
-    | otherwise = error ("Failed: expected 233168 but was: " ++ show eulerGuard)
+    | actual == expected = putStrLn "Passed"
+    | otherwise = error ("Failed: expected " ++ show expected ++ " but was: " ++ show actual)
+    where expected = 233168
+          actual = eulerGuard
 
 testEulerWhere
-    | eulerWhere == 233168 = putStrLn "Passed"
-    | otherwise = error ("Failed: expected 233168 but was: " ++ show eulerWhere)
+    | actual == expected = putStrLn "Passed"
+    | otherwise = error ("Failed: expected " ++ show expected ++ " but was: " ++ show actual)
+    where expected = 233168
+          actual = eulerWhere
 
 testEulerLet
-    | eulerLet == 233168 = putStrLn "Passed"
-    | otherwise = error ("Failed: expected 233168 but was: " ++ show eulerLet)
+    | actual == expected = putStrLn "Passed"
+    | otherwise = error ("Failed: expected " ++ show expected ++ " but was: " ++ show actual)
+    where expected = 233168
+          actual = eulerLet
 
 testEulerCase
-    | eulerCase == 233168 = putStrLn "Passed"
-    | otherwise = error ("Failed: expected 233168 but was: " ++ show eulerCase)
+    | actual == expected = putStrLn "Passed"
+    | otherwise = error ("Failed: expected " ++ show expected ++ " but was: " ++ show actual)
+    where expected = 233168
+          actual = eulerCase
 
