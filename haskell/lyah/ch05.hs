@@ -62,7 +62,8 @@ hanoiA 0 _ _ _ = []
 --hanoiA n x y z = hanoiA (n-1) x z y ++ [(x,y)] ++ hanoiA (n-1) z y x
 hanoiA n x y z = hanoiA (n-1) x z y ++ [(x,z)] ++ hanoiA (n-1) y x z
 
-applyMoves ((from,to):nextMoves) pegs | trace ("(from:" ++ show from ++ ", to:" ++ show to ++ ") pegs:" ++ show pegs) False = undefined
+applyMoves :: (Show a2, Num a, Num a1) => [(a, a1)] -> [[a2]] -> [[a2]]
+--applyMoves ((from,to):nextMoves) pegs | trace ("(from:" ++ show from ++ ", to:" ++ show to ++ ") pegs:" ++ show pegs) False = undefined
 applyMoves [] pegs = pegs
 applyMoves ((1,2):nextMoves) pegs = applyMoves nextMoves [tail (pegs!!0),         head (pegs!!0):pegs!!1, pegs!!2]
 applyMoves ((1,3):nextMoves) pegs = applyMoves nextMoves [tail (pegs!!0),         pegs!!1,                head (pegs!!0):pegs!!2]
@@ -70,11 +71,11 @@ applyMoves ((2,1):nextMoves) pegs = applyMoves nextMoves [head (pegs!!1):pegs!!0
 applyMoves ((2,3):nextMoves) pegs = applyMoves nextMoves [pegs!!0,                tail (pegs!!1),         head (pegs!!1):pegs!!2]
 applyMoves ((3,1):nextMoves) pegs = applyMoves nextMoves [head (pegs!!2):pegs!!0, pegs!!1,                tail (pegs!!2)]
 applyMoves ((3,2):nextMoves) pegs = applyMoves nextMoves [pegs!!0,                head (pegs!!2):pegs!!1, tail (pegs!!2)]
-applyMoves (dodgyMove:nextMoves) pegs = error "Invalid moves: "
+applyMoves dodgyMoves _ = error "Invalid move"
 
 
 --hanoi :: Num a => a -> [[a]] -> [[a]]
-
+{-
 hanoi a (source:spare:[dest]) | trace ((replicate a ' ') ++ "hanoi " ++ show a ++ " source:" ++ show source ++ ", spare:" ++ show spare ++ ", dest:" ++ show dest) False = undefined
 hanoi disk towers@(source:spare:[dest])
     | disk == 0 = moveTopDisk disk towers
@@ -94,13 +95,32 @@ step3 disk (source:spare:[dest]) = [source', spare', dest']
 moveTopDisk a (source:spare:[dest]) | trace ((replicate a ' ') ++ "moveT " ++ show a ++ " source:" ++ show source ++ ", spare:" ++ show spare ++ ", dest:" ++ show dest) False = undefined
 moveTopDisk disk (source:spare:[dest]) = [tail source,spare,head source:dest]
 
+-}
+
+hanoi' disk towers
+    | trace (show towers) False = undefined
+    | disk == 0 = moveTopDisk disk towers
+    | otherwise = step3 disk (step2 disk (step1 disk towers))
+step1 disk (a:b:[c]) = let (a':c':[b']) = hanoi' (disk-1) [a,c,b] in [a', b', c']
+step2 disk towers = moveTopDisk disk towers
+step3 disk (a:b:[c]) = let (b':a':[c']) = hanoi' (disk-1) [b,a,c] in [a', b', c']
+moveTopDisk disk (a:b:[c]) = [tail a,b,head a:c]
 
 
 
 
+hanoiK :: Int -> String
+hanoiK n
+    | n < 1 = "No moves required to shift zero or negative number of disks\n"
+    | otherwise = hanoiKMoves n 1 3
 
+hanoiKMoves :: Int -> Int -> Int -> String
+hanoiKMoves 1 fromPeg toPeg = hanoiKPrint fromPeg toPeg
+hanoiKMoves n fromPeg toPeg = hanoiKMoves (n-1) fromPeg otherPeg ++ hanoiKMoves 1 fromPeg toPeg ++ hanoiKMoves (n-1) otherPeg toPeg
+    where otherPeg = 6 - toPeg - fromPeg
 
-
+hanoiKPrint :: Int -> Int -> String
+hanoiKPrint fromPeg toPeg = "Move disk from peg " ++ show fromPeg ++ " to peg " ++ show toPeg ++ "\n"
 
 
 
