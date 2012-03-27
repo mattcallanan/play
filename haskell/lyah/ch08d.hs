@@ -1,4 +1,5 @@
 import Data.Monoid
+import qualified Data.Foldable as F
 
 {-
 1. Explain the difference between type constructors and value constructors.
@@ -142,6 +143,11 @@ instance Valuable CurrencySupply2 where
 instance Valuable Bool where
     valuable x = x == True
 
+    {-
+instance Valuable [a] where
+    valuable x = x == True
+-}
+
 newtype StringWrapper = StringWrapper String
 instance Valuable StringWrapper where
     valuable (StringWrapper "Gold") = True
@@ -149,6 +155,19 @@ instance Valuable StringWrapper where
     valuable (StringWrapper "Ruby") = True
     valuable (StringWrapper "Haskell") = True
     valuable _ = False
+
+{-
+Can't do :k on a typeclass
+
+>> :k Valuable
+<interactive>:1:1:
+    Class `Valuable' used as a type
+    In the type `Valuable'    
+
+>> :k CurrencySupplyTree
+CurrencySupplyTree :: * -> *
+-}
+
     
 {-
 7. Make one of your data types an instance of Functor, or explain why you cannot do so.
@@ -158,9 +177,30 @@ instance Functor CurrencySupplyTree where
     fmap f EmptyTree = EmptyTree
     fmap f (Node left cs2 right) = Node (fmap f left) (f cs2) (fmap f right)
 
-
-
+    
+    
+    
+    
 instance Monoid CurrencySupply2 where
     mempty = CurrencySupply2 0 0
     (CurrencySupply2 t1 f1) `mappend` (CurrencySupply2 t2 f2) = (CurrencySupply2 (t1 + t2) (f1 + f2))
 
+instance F.Foldable CurrencySupplyTree where
+    foldMap f EmptyTree = mempty
+    foldMap f (Node l x r) = F.foldMap f l `mappend` f x `mappend` F.foldMap f r
+    
+    
+{-
+    foldMap show buildTree  -- folds up to a single string using the list monoid using CurrencySupply2 -> [Char]
+    foldMap show $ fmap valueCS2 buildTree  -- folds to a long string of concatenated values using Integer -> [Char]
+-}
+
+
+{-
+class YesNo a where  
+    yesno :: a -> Bool 
+
+instance YesNo (Maybe a) where  
+    yesno (Just _) = True  
+    yesno Nothing = False  
+-}
