@@ -1,4 +1,5 @@
 import Control.Monad (Monad, (>>=), guard)
+import Data.Monoid
 
 {-
 Exercise 1
@@ -59,7 +60,15 @@ testRightId = rightId fn 10 == (fn 10)
 testAssoc = (assoc1 fn1 fn2 fn3 3) == (assoc2 fn1 fn2 fn3 3)
 
 
-data StringBuffer a = StringBuffer a deriving (Show, Eq)
-instance Monad StringBuffer where
-    return = StringBuffer
-    StringBuffer s >>= f = f s
+--data (Monoid a) => Buffer a = Buffer a deriving (Show, Eq)
+data Buffer a = Buffer a deriving (Show, Eq)
+instance Monad Buffer where
+    return x = Buffer x
+    Buffer s >>= f = f s
+
+append :: [a] -> [a] -> Buffer [a]
+append suffix orig = Buffer (orig `mappend` suffix)
+
+testAppend = (return "abc" >>= append "123" >>= append "xyz") == (Buffer "abc123xyz")
+testAppend2 = (return [1,1,1] >>= append [2,2,2] >>= append [3,3,3]) == (Buffer [1,1,1,2,2,2,3,3,3])
+testAll = (Data.Monoid.getAll $ Data.Monoid.mconcat $ map Data.Monoid.All [testAppend, testAppend2]) == True
