@@ -2,7 +2,245 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72beb708-9b55-4803-a737-daae8a8a2b84" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lyah/ch12b.hs" afterPath="$PROJECT_DIR$/lyah/ch12b.hs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/coffeescript/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/build.sbt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/lib/junit-4.8.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/lib/scalatest_2.9.0-1.6.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/lib/specs-1.4.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/project/plugins/build.sbt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/src/test/scala/com/coderetreat/GameOfLifeSpec.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blacklist/customers.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blacklist/output.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blacklist/output.monad.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lyah/tower/Tower_of_Hanoi_4_frame_0001.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lyah/tower/Tower_of_Hanoi_4_frame_0003.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lyah/tower/Tower_of_Hanoi_4_frame_0006.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lyah/tower/Tower_of_Hanoi_4_frame_0008.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lyah/tower/Tower_of_Hanoi_4_frame_0010.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lyah/tower/Tower_of_Hanoi_4_frame_0014.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lyah/tower/Tower_of_Hanoi_4_frame_0016.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lyah/tower/Tower_of_Hanoi_4_frame_0018.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lyah/tower/Tower_of_Hanoi_4_frame_0022.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lyah/tower/Tower_of_Hanoi_4_frame_0024.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lyah/tower/Tower_of_Hanoi_4_frame_0026.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lyah/tower/Tower_of_Hanoi_4_frame_0030.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lyah/tower/Tower_of_Hanoi_4_frame_0032.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lyah/tower/Tower_of_Hanoi_4_frame_0034.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lyah/tower/Tower_of_Hanoi_4_frame_0037.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lyah/tower/Tower_of_Hanoi_4_frame_0039.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../node.js/.path_progress" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/README" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/app/assets/images/rails.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/app/mailers/.gitkeep" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/app/models/.gitkeep" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/doc/README_FOR_APP" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/lib/assets/.gitkeep" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/lib/tasks/.gitkeep" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/log/.gitkeep" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/public/favicon.ico" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/test/fixtures/.gitkeep" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/test/functional/.gitkeep" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/test/integration/.gitkeep" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/test/unit/.gitkeep" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/vendor/assets/stylesheets/.gitkeep" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/vendor/plugins/.gitkeep" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/.idea/.name" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/.idea/.name" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/.idea/.rakeTasks" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/.path_progress" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/blacklist/b3Output.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/blacklist/b4Output.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/blacklist/b5Output.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/blacklist/customers.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/blacklist/expected.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/blacklist/newOutput.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/blacklist/output.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/blacklist/output5.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/hackathon/palindrome.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/hackathon/palindrome2.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/.idea/.name" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/sbt.boot.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/scala-2.7.7/lib/scala-compiler.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/scala-2.7.7/lib/scala-library.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/scala-2.7.7/org.scala-tools.sbt/sbt/0.7.5/classpath_2.7.7-0.7.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/scala-2.7.7/org.scala-tools.sbt/sbt/0.7.5/compile_2.7.7-0.7.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/scala-2.7.7/org.scala-tools.sbt/sbt/0.7.5/compiler-interface-bin_2.7.7.final/compiler-interface-bin-0.7.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/scala-2.7.7/org.scala-tools.sbt/sbt/0.7.5/compiler-interface-bin_2.8.0.final/compiler-interface-bin-0.7.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/scala-2.7.7/org.scala-tools.sbt/sbt/0.7.5/compiler-interface-bin_2.8.1.final/compiler-interface-bin-0.7.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/scala-2.7.7/org.scala-tools.sbt/sbt/0.7.5/compiler-interface-src/compiler-interface-src-0.7.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/scala-2.7.7/org.scala-tools.sbt/sbt/0.7.5/compiler-interface-src/jline-0.9.94.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/scala-2.7.7/org.scala-tools.sbt/sbt/0.7.5/control_2.7.7-0.7.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/scala-2.7.7/org.scala-tools.sbt/sbt/0.7.5/io_2.7.7-0.7.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/scala-2.7.7/org.scala-tools.sbt/sbt/0.7.5/ivy-2.2.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/scala-2.7.7/org.scala-tools.sbt/sbt/0.7.5/ivy_2.7.7-0.7.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/scala-2.7.7/org.scala-tools.sbt/sbt/0.7.5/jsch-0.1.31.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/scala-2.7.7/org.scala-tools.sbt/sbt/0.7.5/launcher-interface-0.7.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/scala-2.7.7/org.scala-tools.sbt/sbt/0.7.5/sbt_2.7.7-0.7.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/scala-2.7.7/org.scala-tools.sbt/sbt/0.7.5/test-interface-0.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/scala-2.7.7/org.scala-tools.sbt/sbt/0.7.5/xsbti/interface-0.7.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/scala-2.8.1/lib/scala-compiler.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/scala-2.8.1/lib/scala-library.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/target/.history" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../erlang/echo.erl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../euler/fib.hs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../euler/prob01.hs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../euler/prob02.hs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../fizzBuzz/fizzBuzz.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/coffeescript/coderetreat.coffee" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/coffeescript/coderetreat.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/coffeescript/coderetreatTest.coffee" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/groovy/gameOfLifeOptEachOnly.groovy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/groovy/gameOfLifeOptForOnly.groovy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/groovy/gameOfLifeOptTrampOnly.groovy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/haskell/session4-gameOfLife.hs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/haskell/session6-gameOfLife.hs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/haskell/x.hs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/.classpath" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/.idea/ant.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/.idea/compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/.idea/copyright/profiles_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/.idea/libraries/scala_compiler_2_9_0_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/.idea/libraries/scala_library_2_9_0_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/.idea/uiDesigner.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/.project" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/project/build.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/src.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../game-of-life/scala/src/main/scala/com/coderetreat/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ElfMagic.hs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/factors.hs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hackathon/euler.hs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hackathon/happyNumbers.hs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hackathon/palindrome.hs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lyah/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lyah/ch13a.hs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/primes-test.hs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rights.hs" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../node.js/hello.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../node.js/proxy.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../perl/hi.pl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../perl/ls.pl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../perl/readfile.pl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/Gemfile.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/Gemfile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/Rakefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/app/assets/javascripts/application.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/app/assets/stylesheets/application.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/app/controllers/application_controller.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/app/helpers/application_helper.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/app/views/layouts/application.html.erb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/config.ru" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/config/application.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/config/boot.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/config/database.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/config/environment.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/config/environments/development.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/config/environments/production.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/config/environments/test.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/config/initializers/backtrace_silencers.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/config/initializers/inflections.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/config/initializers/mime_types.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/config/initializers/secret_token.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/config/initializers/session_store.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/config/initializers/wrap_parameters.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/config/locales/en.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/config/routes.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/db/seeds.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/public/404.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/public/422.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/public/500.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/public/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/public/robots.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/script/rails" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/test/performance/browsing_test.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../rails/blog/test/test_helper.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/.idea/ruby.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/.idea/koans.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/GREED_RULES.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/README.rdoc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/Rakefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_array_assignment.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_arrays.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_asserts.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_blocks.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_class_methods.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_classes.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_constants.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_control_statements.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_dice_project.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_exceptions.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_extra_credit.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_hashes.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_inheritance.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_iteration.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_java_interop.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_message_passing.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_methods.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_modules.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_nil.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_objects.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_open_classes.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_proxy_object_project.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_regular_expressions.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_sandwich_code.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_scope.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_scoring_project.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_strings.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_symbols.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_to_str.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_triangle_project.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_triangle_project_2.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/about_true_and_false.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/array_test.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/code_mash.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/edgecase.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/example_file.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/first_test.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/path_to_enlightenment.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/test_helper.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/koans/triangle.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../ruby/license.rb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/out/production/scala/testScala/.idea/ant.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/out/production/scala/testScala/.idea/compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/out/production/scala/testScala/.idea/copyright/profiles_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/out/production/scala/testScala/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/out/production/scala/testScala/.idea/highlighting.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/out/production/scala/testScala/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/out/production/scala/testScala/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/out/production/scala/testScala/.idea/uiDesigner.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/out/production/scala/testScala/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/out/production/scala/testScala/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/out/production/scala/testScala/project/build.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/.idea/ant.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/.idea/compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/.idea/copyright/profiles_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/.idea/highlighting.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/.idea/uiDesigner.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../scala/testScala/project/boot/update.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/haskell.iws" afterPath="$PROJECT_DIR$/haskell.iws" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../snapblog/log/access.log" afterPath="$PROJECT_DIR$/../snapblog/log/access.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../snapblog/log/error.log" afterPath="$PROJECT_DIR$/../snapblog/log/error.log" />
     </list>
@@ -65,7 +303,7 @@
       <file leaf-file-name="ch12b.hs" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lyah/ch12b.hs">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="67" column="0" selection-start="1738" selection-end="1738" vertical-scroll-proportion="0.8147208">
               <folding />
             </state>
           </provider>
@@ -75,6 +313,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/lyah/ch12b.hs" />
+      </list>
+    </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
@@ -160,6 +405,7 @@
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -181,6 +427,21 @@
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+        <option name="RakeTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="HaskellRunConfiguration" factoryName="Haskell">
+      <module name="" />
+      <setting name="mainFile" value="" />
+      <setting name="params" value="" />
+      <setting name="rtFlags" value="" />
+      <setting name="workDir" value="" />
+      <setting name="passParentEnv" value="true" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
         <option name="Maven.BeforeRunTask" enabled="false" />
         <option name="RakeTask" enabled="false" />
       </method>
@@ -282,6 +543,11 @@
       <created>1333804236852</created>
       <updated>1333804236852</updated>
     </task>
+    <task id="LOCAL-00001" summary="ch12b.hs">
+      <created>1333804901817</created>
+      <updated>1333804901817</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -289,7 +555,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32921174" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -299,12 +565,13 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24962063" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24962063" sideWeight="0.6707882" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41885626" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -349,7 +616,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="LAST_COMMIT_MESSAGE" value="ch12b.hs" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -362,14 +629,19 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="ch12b.hs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/lyah/ch12b.hs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="67" column="0" selection-start="1738" selection-end="1738" vertical-scroll-proportion="0.8147208">
           <folding />
         </state>
       </provider>
