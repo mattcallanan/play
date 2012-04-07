@@ -1,14 +1,28 @@
+def main(world) {
+    main_recurse(world, 1)
+}
+
 def main_recurse
 main_recurse = { world, count ->
     minX = min_x world
     maxX = max_x world
     minY = min_y world
     maxY = max_y world
-    println to_string(world)
+    println to_string1(world)
     println "^ ${count}-----------------------------------(${minX},${minY})-(${maxX},${maxY}) = ${(maxX-minX)*(maxY-minY)}"
-    main_recurse.trampoline(progress(world), count + 1)
+    main_recurse.trampoline(progress2(world), count + 1)
 }.trampoline()
- 
+
+def main_recurse1(world, count) {
+    minX = min_x world
+    maxX = max_x world
+    minY = min_y world
+    maxY = max_y world
+    println to_string1(world)
+    println "^ ${count}-----------------------------------(${minX},${minY})-(${maxX},${maxY}) = ${(maxX-minX)*(maxY-minY)}"
+    main_recurse1(progress2(world), count + 1)
+}
+
 def to_string1(world) {
     def res = ""
     all_cells_sorted_by_row(world).each { x, y ->
@@ -17,12 +31,16 @@ def to_string1(world) {
     }
     res
 }
- 
-def to_string(world) {
+
+def to_string2(world) {
+    minX = min_x world
+    maxX = max_x world
+    minY = min_y world
+    maxY = max_y world
     def res = new StringBuilder()
-    for (int y = min_y(world); y <= max_y(world); y++)
-        for (int x = min_x(world); x <= max_x(world); x++) {
-            if (x == min_x(world) && y != min_y(world)) res += "\n"
+    for (int y = minY; y <= maxY; y++)
+        for (int x = minX; x <= maxX; x++) {
+            if (x == minX && y != minY) res += "\n"
             res += ([x, y] in world) ? "*" : "."
         }
     res.toString()
@@ -32,12 +50,11 @@ def progress1(world) {
     all_cells_sorted_by_row(world).findAll { x, y -> will_live([x, y], world) }
 }
  
-def progress(world) {
+def progress2(world) {
     def result = []
-    for (int y = min_y(world); y <= max_y(world); y++)
-        for (int x = min_x(world); x <= max_x(world); x++)
+    for (int y = minY; y <= maxY; y++)
+        for (int x = minX; x <= maxX; x++)
             if (will_live([x, y], world)) result << [x, y]
-//    all_cells_sorted_by_row(world).findAll { x, y -> will_live([x, y], world) }
     result
 }
  
@@ -66,52 +83,7 @@ def alive_neighbours(cell, world) {
 }
  
 // EXAMPLE WORLDS
- 
-def glider() {
-    [[2, 1], [3, 2], [1, 3], [2, 3], [3, 3]]
-}
- 
-def acorn() {
-    [[2, 1], [4, 2], [1, 3], [2, 3], [5, 3], [6, 3], [7, 3]]
-}
- 
-// TESTS
- 
-class TestGameOfLife extends GroovyTestCase {
-    def test_alive_neighbours() {
-        def test_world = [[1, 1], [1, 2], [2, 2], [1, 3], [3, 2]]
-        assertEquals 4, alive_neighbours([2, 2], test_world)
-        assertEquals 3, alive_neighbours([0, 2], test_world)
-        assertEquals 1, alive_neighbours([3, 2], test_world)
-        assertEquals 0, alive_neighbours([4, 4], test_world)
-    }
- 
-    def test_will_live() {
-        def test_world = [[1, 1], [1, 2], [2, 2], [1, 3], [3, 2]]
-        assertEquals false, will_live([2, 2], test_world)
-        assertEquals true, will_live([0, 2], test_world)
-        assertEquals false, will_live([3, 2], test_world)
-        assertEquals false, will_live([2, 1], test_world)
-        assertEquals false, will_live([2, 3], test_world)
-        assertEquals false, will_live([4, 4], test_world)
-    }
- 
-    def test_progress() {
-        def test_world = [[1, 1], [1, 2], [2, 2], [1, 3], [3, 2]]
-        assertEquals([[1, 1], [0, 2], [1, 2], [1, 3]], progress(test_world))
-    }
- 
-    def test_min_max() {
-        assertEquals 0 - 1, min_x([[1, 1], [0, 2], [1, 3]])
-        assertEquals((-1 - 1), min_y([[1, 1], [0, 2], [1, 3], [0, -1]]))
-        assertEquals 1 - 1, min_y([[2, 1], [4, 2], [1, 3], [2, 3], [5, 3], [6, 3], [7, 3]])
-        assertEquals 1 + 1, max_x([[1, 1], [0, 2], [1, 3]])
-        assertEquals 3 + 1, max_y([[1, 1], [0, 2], [1, 3], [0, -1]])
-    }
- 
-    def test_print() {
-        assertEquals "...\n.*.\n...", to_string([[1, 1]])
-    }
-}
+def glider() { [[2, 1], [3, 2], [1, 3], [2, 3], [3, 3]] }
+def acorn() { [[2, 1], [4, 2], [1, 3], [2, 3], [5, 3], [6, 3], [7, 3]] }
  
 main_recurse(acorn(), 1)

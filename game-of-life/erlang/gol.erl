@@ -5,16 +5,47 @@
 %% > [{X,Y} || {X,Y} <- [{1,1},{2,2}], lists:member({X,Y}, [{1,1},{2,2}])]
 
 -module(gol).
--export([liveNeighbours/2, willLive/2, progress/1, acorn/0, minX/1]).
+-export([main/1, liveNeighbours/2, willLive/2, progress/1, acorn/0, toString/2]).
 
-%%toString(World) -> [io:format("~s~n", [fbn(X)]) || Y <- lists:seq(minY(World), maxY(World)), X <- lists:seq(minX(World), maxX(World))]
+main(World) ->
+    mainRecurse(World, 1).
+    
+mainRecurse(World, Count) ->
+    toString(World, Count),
+    mainRecurse(progress(World), Count+1).
+
+toString(World, Count) -> 
+    MinX = minX(World),
+    MaxX = maxX(World),
+    MinY = minY(World),
+    MaxY = maxY(World),
+    [io:format("~s", [cellString({X,Y}, World)]) || Y <- lists:seq(MinY, MaxY), X <- lists:seq(MinX, MaxX)],
+    io:format("~n^ ~w-----------------------------------(~w,~w)-(~w,~w) = ~w", [Count, MinX, MinY, MaxX, MaxY, (MaxX-MinX)*(MaxY-MinY)]).
+
+cellString({X, Y}, World) ->
+    CurrentlyAlive = lists:member({X, Y}, World),
+    if
+        CurrentlyAlive -> 
+            lists:append(break({X, Y}, World), "*");
+        true ->   % works as an 'else' branch
+            lists:append(break({X, Y}, World), ".")
+    end.
+
+break({X, Y}, World) ->
+    NewLine = X == minX(World),
+    if
+        NewLine -> 
+            "\n";
+        true ->   % works as an 'else' branch
+            ""
+    end.
 
 progress(World) -> [{X,Y} || X <- lists:seq(minX(World), maxX(World)), Y <- lists:seq(minY(World), maxY(World)), willLive({X,Y},(World))].
 
-minX(World) -> lists:min(element(1, lists:unzip(World))).
-maxX(World) -> lists:max(element(1, lists:unzip(World))).
-minY(World) -> lists:min(element(2, lists:unzip(World))).
-maxY(World) -> lists:max(element(2, lists:unzip(World))).
+minX(World) -> lists:min(element(1, lists:unzip(World))) -1.
+maxX(World) -> lists:max(element(1, lists:unzip(World))) +1.
+minY(World) -> lists:min(element(2, lists:unzip(World))) -1.
+maxY(World) -> lists:max(element(2, lists:unzip(World))) +1.
 
 willLive({X, Y}, World) ->
     CurrentlyAlive = lists:member({X, Y}, World),

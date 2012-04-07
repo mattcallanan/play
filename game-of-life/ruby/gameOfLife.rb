@@ -5,8 +5,12 @@ def main(world)
 end
 
 def main_recurse(world, count)
+  minX = min_x world
+  maxX = max_x world
+  minY = min_y world
+  maxY = max_y world
   puts to_string world
-  puts "^ #{count}-----------------------------------(#{min_x world},#{min_y world})-(#{max_x world},#{max_y world})"
+  puts "^ #{count}-----------------------------------(#{min_x world},#{min_y world})-(#{max_x world},#{max_y world}) = #{(maxX-minX)*(maxY-minY)}"
   main_recurse progress(world), count+1
 end
 

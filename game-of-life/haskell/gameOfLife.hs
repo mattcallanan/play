@@ -11,7 +11,7 @@ maxY world = (maximum $ snd $ unzip world) + 1
 
 willLive (x,y) world 
     | (x,y) `elem` world = n `elem` [2,3]
-	| otherwise = n == 3
+    | otherwise = n == 3
     where n = (liveNeighbours (x,y) world)
 
 liveNeighbours (x,y) world = length [(x,y) | oX <- [-1..1], oY <- [-1..1], not (oX == 0 && oY == 0), elem (x+oX, y+oY) world]
@@ -19,14 +19,18 @@ liveNeighbours (x,y) world = length [(x,y) | oX <- [-1..1], oY <- [-1..1], not (
 printWorld world count = putStrLn $ toString world count
 --display zs = sequence_ [putStrLn (a++" = "++b) | (a,b) <- zs]
 
-toString world count = concat [(cellString (x,y) world) | y <- [smly..bigy], x <- [smlx..bigx]] ++ "\n^" ++ (show count) ++ "------------------------------(" ++ (show smlx) ++ "," ++ (show smly) ++ ")-(" ++ (show bigx) ++ "," ++ (show bigy) ++ ")"
-    where smlx = minX world; smly = minY world; bigx = maxX world; bigy = maxY world
+toString world count = concat [(cellString (x,y) world) | y <- [smly..bigy], x <- [smlx..bigx]] ++ "\n^" ++ (show count) ++ "------------------------------(" ++ (show smlx) ++ "," ++ (show smly) ++ ")-(" ++ (show bigx) ++ "," ++ (show bigy) ++ ") = " ++ (show cellCount)
+    where smlx = minX world
+          smly = minY world
+          bigx = maxX world
+          bigy = maxY world
+          cellCount = (bigx - smlx) * (bigy - smly)
           
 cellString (x,y) world
     | (x,y) `elem` world = br ++ "*"
     | otherwise = br ++ "."
     where br = if x == minX world then "\n" else ""
-	
+
 -- EXAMPLE WORLDS
 glider = [(2,1),(3,2),(1,3),(2,3),(3,3)]
 acorn = [(2,1),(4,2),(1,3),(2,3),(5,3),(6,3),(7,3)]
