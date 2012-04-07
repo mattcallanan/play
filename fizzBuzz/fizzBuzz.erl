@@ -1,3 +1,8 @@
+%% HOWTO Run:
+%% erl
+%% > c(fizzBuzz).
+%% > fizzBuzz:main().
+
 -module(fizzBuzz).
 -export([main/0]).
 
