@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
   <component name="FacetManager">
+    <facet type="hibernate" name="Hibernate">
+      <configuration>
+        <datasource-map />
+      </configuration>
+    </facet>
     <facet type="web" name="GrailsWeb">
       <configuration>
         <webroots>
@@ -9,17 +14,17 @@
         <sourceRoots />
       </configuration>
     </facet>
-    <facet type="hibernate" name="Hibernate">
-      <configuration>
-        <datasource-map>
-          <unit-entry name="Gorm" />
-          <unit-entry name="sessionFactory" />
-        </datasource-map>
-      </configuration>
-    </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
+    <content url="file://$USER_HOME$/.grails/2.0.3/projects/blog/plugins/cloud-foundry-1.2.1">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/blog/plugins/cloud-foundry-1.2.1/src/java" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/blog/plugins/cloud-foundry-1.2.1/src/groovy" isTestSource="false" />
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/blog/plugins/cloud-foundry-1.2.1/grails-app/taglib" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.grails/2.0.3/projects/blog/plugins/cloud-support-1.0.9">
+      <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/blog/plugins/cloud-support-1.0.9/src/groovy" isTestSource="false" />
+    </content>
     <content url="file://$USER_HOME$/.grails/2.0.3/projects/blog/plugins/hibernate-2.0.3">
       <sourceFolder url="file://$USER_HOME$/.grails/2.0.3/projects/blog/plugins/hibernate-2.0.3/grails-app/i18n" isTestSource="false" />
     </content>
@@ -44,9 +49,14 @@
     <orderEntry type="library" scope="PROVIDED" name="grails-2.0.3" level="application" />
     <orderEntry type="module-library" exported="">
       <library name="Grails User Library (Blog-grailsPlugins)">
-        <CLASSES />
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.codehaus.jackson/jackson-core-asl/jars/jackson-core-asl-1.4.1.jar!/" />
+          <root url="jar://$USER_HOME$/.grails/ivy-cache/org.codehaus.jackson/jackson-mapper-asl/jars/jackson-mapper-asl-1.4.1.jar!/" />
+          <root url="file://$USER_HOME$/.grails/2.0.3/projects/blog/plugins/cloud-foundry-1.2.1/lib" />
+        </CLASSES>
         <JAVADOC />
         <SOURCES />
+        <jarDirectory url="file://$USER_HOME$/.grails/2.0.3/projects/blog/plugins/cloud-foundry-1.2.1/lib" recursive="false" />
       </library>
     </orderEntry>
   </component>

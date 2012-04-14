@@ -29,7 +29,7 @@
 				margin-bottom: 0.6em;
 				padding: 0;
 			}
-            
+
 			#status li {
 				line-height: 1.3;
 			}
@@ -117,6 +117,14 @@
 					</g:each>
 				</ul>
 			</div>
-		</div>
+
+            %{--<h1>Environment Variables</h1>--}%
+            %{--<table>--}%
+                %{--<% System.getenv().each() { k,v -> %>--}%
+                %{--<tr><td> <% println k %></td><td><% println v %></td></tr>--}%
+                %{--<% } %>--}%
+            %{--</tr></table>--}%
+
+        </div>
 	</body>
 </html>
