@@ -105,25 +105,25 @@ startNexus = Node ([1,2,3,4]) Empty Empty
 --startNexusZipper :: Zipper a
 startNexusZipper = (startNexus, [])
 endNexus =
-    Node [1,2,3,4]
-        (Node [1,2,3]
-            (Node [1,2]
-                (Node [1] Empty Empty)
-                (Node [2] Empty Empty)
+    Node [1,2,3,4]                       --first
+        (Node [1,2,3]                    --first
+            (Node [1,2]                  --first
+                (Node [1] Empty Empty)   --first
+                (Node [2] Empty Empty)   --first
             )
-            (Node [2,3]
+            (Node [2,3]                  --first
                 (Node [2] Empty Empty)
-                (Node [3] Empty Empty)
+                (Node [3] Empty Empty)   --first
             )
         )
-        (Node [2,3,4]
+        (Node [2,3,4]                    --first
             (Node [2,3]
                 (Node [2] Empty Empty)
                 (Node [3] Empty Empty)
             )
-            (Node [3,4]
+            (Node [3,4]                  --first
                 (Node [3] Empty Empty)
-                (Node [4] Empty Empty)
+                (Node [4] Empty Empty)   --first
             )
         )
 
@@ -131,10 +131,13 @@ createNexus :: Zipper [Int] -> Zipper [Int]
 createNexus z@(t, bs) = attach (toNexus t) z
 
 toNexus :: Tree [Int] -> Tree [Int]
-toNexus (Node [x] l r) = Node [x] l r
+toNexus t@(Node [x] l r) = t
 toNexus (Node xs l r) = Node xs (toNexus (Node (init xs) l r)) (toNexus (Node (tail xs) l r))
 
 
 {- Make this True: -}
 
 okBeginNexus = (fst (createNexus startNexusZipper)) == (endNexus)
+okTreeSize = (treeSize $ fst (createNexus startNexusZipper)) == 10
+    where treeSize Empty = 0
+          treeSize (Node x l r) = 1 + (treeSize l) + (treeSize r)
