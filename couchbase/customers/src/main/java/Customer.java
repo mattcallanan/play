@@ -1,0 +1,29 @@
+private class Customer {
+    String idNumber;
+    String gender;
+    String givenName;
+    String middleInitial;
+    String surname;
+    String streetAddress;
+    String city;
+    String state;
+    String postCode;
+    String country;
+    String emailAddress;
+    String password;
+    String telephoneNumber;
+    String mothersMaiden;
+    String birthday;
+    String ccType;
+    String ccNumber;
+    String cvv2;
+    String ccExpires;
+    String nationalID;
+    String ups;
+    String occupation;
+    String company;
+    String domain;
+    String bloodType;
+    String kilograms;
+    String centimeters;
+}
