@@ -1,6 +1,3 @@
--- What Is Functional Programming?
--- Craig Aspinall, 6-Jun-2011
-
 import Control.Monad
 
 multipleOf3 num = mod num 3 == 0
