@@ -1,0 +1,76 @@
+<!-- RxJS demo taken from: https://github.com/Reactive-Extensions/RxJS -->
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/2.5.3/rx.lite.js"></script>
+    <style>
+        body {
+            padding: 20px;
+            font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+<b>Input:</b> <input type="text" id="input"/> (type at least 3 characters)<br>
+<b>Results:</b><br>
+
+<div id="results"></div>
+
+<script>
+    var $input = $('#input'),
+            $results = $('#results');
+
+    function searchWikipedia(term) {
+        return $.ajax({
+            url: 'http://en.wikipedia.org/w/api.php',
+            dataType: 'jsonp',
+            data: {
+                action: 'opensearch',
+                format: 'json',
+                search: term
+            }
+        }).promise();
+    }
+
+    /* Only get the value from each key up */
+    var keyups = Rx.Observable.fromEvent($input, 'keyup')
+            .map(function (e) {
+                console.log("keyup: %s", e);
+                return e.target.value;
+            })
+            .filter(function (text) {
+                return text.length > 2;
+            });
+
+    /* Now debounce the input for 500ms */
+    var debounced = keyups
+            .debounce(500 /* ms */);
+
+    /* Now get only distinct values, so we eliminate the arrows and other control characters */
+    var distinct = debounced
+            .distinctUntilChanged();
+
+    var suggestions = distinct
+            .flatMapLatest(searchWikipedia);
+
+    suggestions.forEach(
+            function (data) {
+                $results
+                        .empty()
+                        .append($.map(data[1], function (value) {
+                            return $('<li>').text(value);
+                        }));
+            },
+            function (error) {
+                $results
+                        .empty()
+                        .append($('<li>'))
+                        .text('Error:' + error);
+            });
+
+</script>
+
+</body>
+</html>
