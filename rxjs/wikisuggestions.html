@@ -34,28 +34,18 @@
         }).promise();
     }
 
-    /* Only get the value from each key up */
-    var keyups = Rx.Observable.fromEvent($input, 'keyup')
-            .map(function (e) {
-                console.log("keyup: %s", e);
-                return e.target.value;
-            })
-            .filter(function (text) {
-                return text.length > 2;
-            });
-
-    /* Now debounce the input for 500ms */
-    var debounced = keyups
-            .debounce(500 /* ms */);
-
-    /* Now get only distinct values, so we eliminate the arrows and other control characters */
-    var distinct = debounced
-            .distinctUntilChanged();
-
-    var suggestions = distinct
-            .flatMapLatest(searchWikipedia);
-
-    suggestions.forEach(
+    // Only get the value from each key up
+    Rx.Observable.fromEvent($input, 'keyup')
+            .map(function (e) { return e.target.value; })
+            .filter(function (text) { return text.length > 2; })
+        // Now debounce the input for 500ms
+            .debounce(500)
+        // Now get only distinct values, so we eliminate the arrows and other control characters
+            .distinctUntilChanged()
+        // Now get the value and ensure that we're not introducing any out of order sequence calls.
+            .flatMapLatest(searchWikipedia)
+        // Execute the Observables to start pulling data
+            .forEach(
             function (data) {
                 $results
                         .empty()
